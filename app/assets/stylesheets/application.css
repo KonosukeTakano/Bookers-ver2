@@ -69,6 +69,10 @@ table {
     color: white;
 }
 
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+}
+
 
 
 @media screen and (min-width: 992px) {
