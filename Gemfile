@@ -50,6 +50,8 @@ group :test do
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'faker'
+  gem 'rubocop-rails', require: false
+  gem 'rubocop', '~> 1.29', require: false
   # Easy installation and use of web drivers to run system tests with browsers
 end
 
@@ -57,5 +59,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-
-gem 'pry-rails'

@@ -9,6 +9,8 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.new
     
+    @user = current_user
+    
     @users = User.all
   end
   
@@ -28,7 +30,7 @@ class BooksController < ApplicationController
     
     if @book.save
     #詳細画面へリダイレクト
-      flash[:notice] = "Book was successfully updated."
+      flash[:notice] = "You have updated book successfully."
       redirect_to book_path(@book.id)
     else
       render :edit
@@ -44,7 +46,7 @@ class BooksController < ApplicationController
     #データをデータベースに保存するためのsaveメソッド実行
     if @book.save
     #詳細画面へリダイレクト
-      flash[:notice] = "Book was successfully created."
+      flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book.id)
       #一覧画面を表示、エラーメッセージを出したい
     else
