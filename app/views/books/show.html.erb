@@ -1,10 +1,12 @@
+<div class="container px-5 px-sm-0">
+
 <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
 <% end %>
 
 <div class="container">
   <div class="row">
-    <%= render partial: 'sidebar', locals: { books: @books, user: @user }  %>
+    <%= render partial: 'show#sidebar/sidebar', locals: { books: @books, user: @user }  %>
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class="table">
@@ -31,4 +33,5 @@
     </div>
   </div>
 </div>
-
+</div>
+</div>

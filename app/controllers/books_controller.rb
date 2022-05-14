@@ -8,9 +8,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @book = Book.new
-    
     @user = current_user
-    
     @users = User.all
   end
   
@@ -48,8 +46,8 @@ class BooksController < ApplicationController
     #詳細画面へリダイレクト
       flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book.id)
-      #一覧画面を表示、エラーメッセージを出したい
     else
+      #一覧画面を表示、エラーメッセージを出したい
       render :index
     end
   end

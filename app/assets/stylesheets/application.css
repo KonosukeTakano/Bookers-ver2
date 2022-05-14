@@ -80,6 +80,10 @@ table {
     margin-bottom: 1rem;
 }
 
+.error-message {
+    font-size: 1.4rem;
+}
+
 @media (min-width: 576px){
     /*ここから編集画面のレイアウト*/
 .pl-sm-0, .px-sm-0 {
