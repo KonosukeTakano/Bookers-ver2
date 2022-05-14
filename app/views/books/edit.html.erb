@@ -1,4 +1,14 @@
 <main>
+  <% if @book.errors.any? %>
+  <div id="error_explanation">
+    <div class="error-message">&nbsp;&nbsp;<%= @book.errors.count %> error occurred</div>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
