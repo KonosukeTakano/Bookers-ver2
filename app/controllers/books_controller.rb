@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  
   def new
     #Viewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する。
     @book = Book.new
@@ -20,6 +19,9 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     @books = Book.all
+    unless @book.user == current_user
+      redirect_to books_path
+    end
   end
   
   def update
