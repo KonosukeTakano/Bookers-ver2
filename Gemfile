@@ -65,5 +65,5 @@ group :development, :test do
 end
 # 本番環境ではPostgresqlを使う
 group :production do
-  gem 'pg', '~> 0.18'
+  gem 'pg', '1.1'
 end
