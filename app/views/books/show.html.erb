@@ -1,9 +1,3 @@
-<!--改行するためのメソッドを定義-->
-<% str = "\n" %>
-<% def html_safe_newline(str) h(str).gsub(/\n|\r|\r\n/, "<br>").html_safe end %>
-<!--ここまで-->
-
-
 <div class="container px-5 px-sm-0">
 
 <% if flash[:notice] %>
@@ -26,57 +20,16 @@
                 <% end %>
                 <div><%= link_to @user.name,user_path(@user) %></div>
               </td>
-              <td class="list-box">
-                <%= @book.title %>
-                <% if current_user == @user %>
-                  <div><%= link_to "Edit",edit_book_path(@book), class: "btn btn-sm btn-success" %></div>
-                <% end %>
-                <% if @book.favorited_by?(current_user) %>
-                  <div class="like">
-                    <%= link_to book_favorites_path(@book), method: :delete do %>
-                      Like♥<%= @book.favorites.count %>
-                    <% end %>
-                  </div>
-                <% else %>
-                  <div class="like">
-                    <%= link_to book_favorites_path(@book), method: :post do %>
-                      Like♡<%= @book.favorites.count %>
-                    <% end %>
-                  </div>
-                <% end %>
-              </td>
-              <td class="list-box list-body">
-                <%= @book.body %>
-                <% if current_user == @user %>
-                  <div><%= link_to "Destroy", destroy_book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %></div>
-                <% end %>
-                <div class="like">
-                  comments:<%= @book.book_comments.count %>
-                </div>
-              </td>
+              <td class="list-box"><%= @book.title %></td>
+              <td class="list-box list-body"><%= @book.body %></td>
+              <!--投稿者だけ編集、削除可能に-->
+              <% if current_user == @user %>
+                  <td><%= link_to "Edit",edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
+                  <td><%= link_to "Destroy", destroy_book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %></td>
+              <% end %>
             </tr>
         </tbody>
       </table>
-      <% @book.book_comments.each do |book_comment| %>
-        <p><%= image_tag book_comment.user.get_profile_image(100,100) %></p>
-        <%= book_comment.user.name %>
-        <%= book_comment.created_at.strftime('%Y/%m/%d ') %>
-        <%= html_safe_newline(str) %>
-        <%= book_comment.comment %>
-        <% if book_comment.user == current_user %>
-          <div>
-            <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
-          </div>
-        <% end %>
-      <% end %>
-      <div>
-        <%= form_with model: [@book, @book_comment] do |f| %>
-          <%= f.text_area :comment, rows: '5', placeholder: "comments here", class: "form-control" %>
-          <div>
-            <%= f.submit "Send", class: "btn btn-secondary" %>
-          </div>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>

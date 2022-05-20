@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
+ 
 header{
    background-color: grey;
 }
@@ -23,27 +23,17 @@ header{
   font-size: 1.5rem;
 }
 
+.nav-icon{
+    display: table;
+}
+
 .container{
     margin-right: auto;
     margin-left: auto;
 }
 
-.nav-icon{
-    display: table;
-}
-
 .nav-icon-all {
     display: flex;
-}
-
-.navbar-toggle {
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-    vertical-align: middle;
-    content: "";
-    background: no-repeat 50%;
-    background-size: 100% 100%;
 }
 
 .ft-item {
@@ -68,8 +58,12 @@ table {
     padding: 0.75rem;
     vertical-align: top;
     border-top: 1px solid #dee2e6;
-    position: relative;
 }
+
+/*.btn.btn-success {*/
+/*    margin-top: 10px;*/
+/*}*/
+
 
 .navbar-nav .nav-link {
     color: white;
@@ -85,31 +79,11 @@ table {
 .form-group {
     margin-bottom: 1rem;
 }
-#book_comment_comment {
-    margin-top: 7px;
-}
 
 .error-message {
     font-size: 1.4rem;
 }
 
-/*ボタン*/
-.btn.btn-secondary {
-    margin-top: 10px;
-}
-
-.btn.btn-sm.btn-danger {
-    margin-top: 2px;
-    margin-bottom: 16px;
-}
-.submit.btn.btn-success {
-    margin-bottom: 10px;
-}
-.like {
-    position: absolute;
-    bottom: 14px;
-}
-/*ボタンここまで*/
 @media (min-width: 576px){
     /*ここから編集画面のレイアウト*/
 .pl-sm-0, .px-sm-0 {
@@ -121,9 +95,9 @@ table {
 }
     /*ここまで編集画面のレイアウト*/
 }
-
+    
 @media screen and (min-width: 992px) {
-
+    
 /* 992px以上の幅の場合に適応される */
     .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 0.5rem;

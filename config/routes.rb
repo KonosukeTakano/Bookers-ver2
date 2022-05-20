@@ -8,10 +8,7 @@ Rails.application.routes.draw do
   root to: 'home#top'
   
   resources :users,only: [:index, :show, :edit]
-  resources :books,only: [:new, :index, :show, :create, :edit] do
-    resource :favorites, only: [:create, :destroy]
-    resources :book_comments, only: [:create, :destroy]
-  end
+  resources :books,only: [:new, :index, :show, :create, :edit]
   
   get 'home/about' => 'home#about' ,as: 'about'
   patch 'users/:id' => 'users#update', as: 'update_user'
