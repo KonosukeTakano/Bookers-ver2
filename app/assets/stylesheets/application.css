@@ -143,3 +143,25 @@ table {
     max-width: 1140px;
 }
 }
+
+@media screen and (max-width: 640px) {
+  .tbl-r02 th {
+    display: none;
+  }
+  .tbl-r02 td {
+　　border-bottom: none;
+    display: block;
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 450px) {
+    .book_comments{
+        text-align: right;
+    }
+    スマホサイズの時改行を入れる
+    .new-line{
+        display: none;
+    }
+}
