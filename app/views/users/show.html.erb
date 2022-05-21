@@ -1,3 +1,8 @@
+<!--改行するためのメソッドを定義-->
+<% str = "\n" %>
+<% def html_safe_newline(str) h(str).gsub(/\n|\r|\r\n/, "<br>").html_safe end %>
+<!--ここまで-->
+
 <div class="container px-5 px-sm-0">
 
 <% if flash[:notice] %>
