@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Name（リポジトリ/プロジェクト/OSSなどの名前）
+Bookers-ver2
+This is a web application where you can post your opinions on books you have read and provides a place to share your opinions with others.
 
-Things you may want to cover:
+# Features
 
-* Ruby version
+Not only did the layout change according to the screen width, but some elements were hidden.
 
-* System dependencies
+# Requirement
 
-* Configuration
+* Ruby 2.6.3
+* Ruby on Rails 6.1.6
+* sqlite3 3.7.17 (development,test)
+* psql (PostgreSQL) 9.2.24 (production)
+* Puma
+* AWS
+  * EC2
+  * cloud9
+* heroku  
 
-* Database creation
+# Author
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* name: Konosuke Takano
+* mail: takano.konosuke.infratop@gmail.com
