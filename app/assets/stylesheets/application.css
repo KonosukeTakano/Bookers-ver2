@@ -100,7 +100,6 @@ table {
 
 .btn.btn-sm.btn-danger {
     margin-top: 2px;
-    margin-bottom: 16px;
 }
 .submit.btn.btn-success {
     margin-bottom: 10px;
@@ -160,7 +159,7 @@ table {
     .book_comments{
         text-align: right;
     }
-    スマホサイズの時改行を入れる
+    /*スマホサイズの時改行を入れる*/
     .new-line{
         display: none;
     }
