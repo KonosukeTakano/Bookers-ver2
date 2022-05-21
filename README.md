@@ -1,7 +1,7 @@
 # README
 
 # Name（リポジトリ/プロジェクト/OSSなどの名前）
-Bookers-ver2
+Bookers-ver2.
 This is a web application where you can post your opinions on books you have read and provides a place to share your opinions with others.
 
 # Features
