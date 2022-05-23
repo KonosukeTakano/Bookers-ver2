@@ -5,6 +5,16 @@
 
 
 <div class="container px-5 px-sm-0">
+  <% if @book_comment.errors.any? %>
+    <div id="error_explanation">
+      <div class="error-message">&nbsp;&nbsp;<%= @book_comment.errors.count %> error occurred</div>
+      <ul>
+        <% @book_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
@@ -41,11 +51,13 @@
                 <% end %>
                 <% if @book.favorited_by?(current_user) %>
                     <%= link_to book_favorites_path(@book), method: :delete do %>
-                      Like♥<%= @book.favorites.count %>
+                      Like<i class="fa-solid fa-heart"></i>
+                      <%= @book.favorites.count %>
                     <% end %>
                 <% else %>
                     <%= link_to book_favorites_path(@book), method: :post do %>
-                      Like♡<%= @book.favorites.count %>
+                      Like！<i class="fa-regular fa-heart"></i>
+                      <%= @book.favorites.count %>
                     <% end %>
                 <% end %>
                 <!--↓改行-->
