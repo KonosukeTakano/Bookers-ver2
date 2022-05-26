@@ -40,8 +40,6 @@ class BooksController < ApplicationController
   end
 
   def create
-
-    @books = Book.all
     #データを受け取り新規登録するためのインスタンス作成
     @book = Book.new(book_params)
     @book.user_id = current_user.id
