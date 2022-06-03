@@ -50,6 +50,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       #一覧画面を表示、エラーメッセージを出したい
+      @books = Book.all
       render :index
     end
   end
