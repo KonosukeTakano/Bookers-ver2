@@ -52,6 +52,7 @@ class BooksController < ApplicationController
     else
       #一覧画面を表示、エラーメッセージを出したい
       @books = Book.all
+      @user = current_user
       render :index
     end
   end
