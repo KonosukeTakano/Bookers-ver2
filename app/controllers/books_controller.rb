@@ -15,6 +15,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = User.find_by(id: @book.user_id) #books/showページで表示するユーザーのid
     @book_comment = BookComment.new
+    @new_book = Book.new
     #追記
   end
 
