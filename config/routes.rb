@@ -1,18 +1,26 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, controllers:  {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
    }
-  
+
   root to: 'home#top'
-  
+
   resources :users,only: [:index, :show, :edit]
   resources :books,only: [:new, :index, :show, :create, :edit] do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
   end
-  
+
+
+  # ネストさせる
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  end
+
   get 'home/about' => 'home#about' ,as: 'about'
   patch 'users/:id' => 'users#update', as: 'update_user'
   patch 'books/:id' => 'books#update', as: 'update_book'
