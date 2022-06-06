@@ -15,6 +15,14 @@
   	  <th>introduction</th>
   	  <th><%= user.introduction %></th>
     </tr>
+    <tr>
+  	  <th><%= link_to "follows", user_followings_path(user.id) %></th>
+  	  <th><%= user.followings.count %></th>
+    </tr>
+    <tr>
+  	  <th><%= link_to "followers", user_followers_path(user.id) %></th>
+  	  <th><%= user.followers.count %></th>
+    </tr>
   </tbody>
 </table>
 
