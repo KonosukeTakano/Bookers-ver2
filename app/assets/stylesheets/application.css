@@ -17,7 +17,11 @@
 header{
    background-color: grey;
 }
-
+.search_form {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
 .app-title{
   color: white;
   font-size: 1.5rem;
