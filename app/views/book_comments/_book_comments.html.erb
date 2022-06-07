@@ -1,0 +1,22 @@
+<!--改行するためのメソッドを定義-->
+<% str = "\n" %>
+<% def html_safe_newline(str) h(str).gsub(/\n|\r|\r\n/, "<br>").html_safe end %>
+<!--ここまで-->
+
+
+<% book.book_comments.each do |book_comment| %>
+  <div class="comment-user-image">
+    <%= image_tag book_comment.user.get_profile_image(100,100) %>
+  </div>
+  <%= book_comment.user.name %>
+  <%= book_comment.created_at.strftime('%Y/%m/%d ') %>
+  <!--↓改行-->
+  <%= html_safe_newline(str) %>
+  <!--↑-->
+  <%= book_comment.comment %>
+  <% if book_comment.user == current_user %>
+    <div>
+      <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
+    </div>
+  <% end %>
+<% end %>
