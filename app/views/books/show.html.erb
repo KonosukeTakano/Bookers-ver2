@@ -5,16 +5,6 @@
 
 
 <div class="container px-5 px-sm-0">
-  <% if @book_comment.errors.any? %>
-    <div id="error_explanation">
-      <div class="error-message">&nbsp;&nbsp;<%= @book_comment.errors.count %> error occurred</div>
-      <ul>
-        <% @book_comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
@@ -63,15 +53,15 @@
             </tr>
         </tbody>
       </table>
-      <div id="book_comments_<%= @book.id %>">
+      <!--コメント一覧-->
+      <div id="comments_area">
         <%= render "book_comments/book_comments", book: @book %>
-        <%= form_with model: [@book, @book_comment], remote: true do |f| %>
-          <%= f.text_area :comment, rows: '5', placeholder: "comments here", class: "form-control" %>
-          <div>
-            <%= f.submit "Send", class: "btn btn-secondary" %>
-          </div>
-        <% end %>
       </div>
+      <!--コメントフォーム-->
+      <div id="comments_form">
+        <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
+      </div>
+        
     </div>
   </div>
 </div>
