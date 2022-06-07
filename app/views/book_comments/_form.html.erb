@@ -1,4 +1,5 @@
-<%= form_with model: [book, book_comment] do |f| %>
+<!--railsではform_withではlocal: trueがデフォルトになったためjs.erbを呼び出すにはlocal: falseが必要！-->
+<%= form_with model: [book, book_comment], local: false do |f| %>
   <!--エラーメッセージ-->
   <%= f.text_area :comment, rows: '5', placeholder: "comments here", class: "form-control" %>
   <div>
