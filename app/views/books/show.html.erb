@@ -51,28 +51,14 @@
               <td class="list-box list-body">
                 <%= @book.body %>
               </td>
-              <td>
+              <td id="favorite_buttons_<%= @book.id %>">
                 <% if current_user == @user %>
                   <div>
                     <%= link_to "Edit",edit_book_path(@book), class: "btn btn-sm btn-success" %>
                     <%= link_to "Destroy", destroy_book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
                   </div>
                 <% end %>
-                <% if @book.favorited_by?(current_user) %>
-                    <%= link_to book_favorites_path(@book), method: :delete do %>
-                      Like<i class="fa-solid fa-heart"></i>
-                      <%= @book.favorites.count %>
-                    <% end %>
-                <% else %>
-                    <%= link_to book_favorites_path(@book), method: :post do %>
-                      Like！<i class="fa-regular fa-heart"></i>
-                      <%= @book.favorites.count %>
-                    <% end %>
-                <% end %>
-                <!--↓改行-->
-                <%= html_safe_newline(str) %>
-                <!--↑-->
-                comments:<%= @book.book_comments.count %>
+                <%= render "favorites/favorite", book: @book %>
               </td>
             </tr>
         </tbody>

@@ -12,7 +12,9 @@ class ApplicationController < ActionController::Base
     flash[:notice] = "Signed out successfully."
     root_path
   end
-
+  
+  
+  
   protected
 
   def configure_permitted_parameters

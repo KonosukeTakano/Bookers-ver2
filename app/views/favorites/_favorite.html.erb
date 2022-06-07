@@ -1,0 +1,22 @@
+<!--改行するためのメソッドを定義-->
+<% str = "\n" %>
+<% def html_safe_newline(str) h(str).gsub(/\n|\r|\r\n/, "<br>").html_safe end %>
+<!--ここまで-->
+
+<% if book.favorited_by?(current_user) %>
+  <%= link_to book_favorites_path(book), method: :delete, remote: true do %>
+  Like！
+    <i class="fa-solid fa-heart"></i>
+    <%= book.favorites.count %>
+  <% end %>
+<% else %>
+  <%= link_to book_favorites_path(book), method: :post, remote: true do %>
+     Like！
+    <i class="fa-regular fa-heart"></i>
+    <%= book.favorites.count %>
+  <% end %>
+<% end %>
+
+&nbsp;&nbsp;&nbsp
+<%= html_safe_newline(str) %><!--改行-->
+<%= link_to "#{book.book_comments.count}comment", book_path(book.id), {class: "book_comments"} %>
