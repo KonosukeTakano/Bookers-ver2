@@ -12,21 +12,19 @@ class ApplicationController < ActionController::Base
     flash[:notice] = "Signed out successfully."
     root_path
   end
-  
-  
-  
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
-  
+
   def move_to_signed_in
     unless user_signed_in?
       #サインインしていないユーザーはログインページが表示される
       redirect_to new_user_session_path
     end
   end
-  
+
 end
