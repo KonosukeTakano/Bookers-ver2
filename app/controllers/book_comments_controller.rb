@@ -4,9 +4,10 @@ class BookCommentsController < ApplicationController
     @book_comment = current_user.book_comments.new(book_comment_params)
     @book_comment.book_id = @book.id
     if @book_comment.save
-      flash.now[:notice] = 'コメントを投稿しました'
+      flash[:notice] = 'コメントを投稿しました'
       render 'book_comments/comments'  #render先にjsファイルを指定
     else
+      flash[:notice] = 'コメント投稿に失敗'
       @user = User.find_by(id: @book.user_id) #books/showページで表示するユーザーのid
       render template: "books/show"
     end
