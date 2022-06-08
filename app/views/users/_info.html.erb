@@ -16,12 +16,12 @@
   	  <th><%= user.introduction %></th>
     </tr>
     <tr>
-  	  <th><%= link_to "follows", user_followings_path(user.id) %></th>
-  	  <th><%= user.followings.count %></th>
+  	  <th><%= link_to "#{ user.followings.count }follows", user_followings_path(user.id), id: "following-count_#{ user.id }" %></th>
+  	  <th></th>
     </tr>
     <tr>
-  	  <th><%= link_to "followers", user_followers_path(user.id) %></th>
-  	  <th><%= user.followers.count %></th>
+  	  <th><%= link_to "#{ user.followers.count }followers", user_followers_path(user.id), id: "follower-count_#{ user.id }" %></th>
+  	  <th></th>
     </tr>
   </tbody>
 </table>

@@ -33,8 +33,8 @@
                     <td><%= user.name %></td>
                     <td>follows:<%= user.followings.count %></td>
                     <td>followers:<%= user.followers.count %></td>
-                    <td>
-                      <%= render partial: 'relationship', locals: { user: user } %>
+                    <td id="follow_button_<%= user.id %>">
+                      <%= render 'relationship', user: user %>
                     </td>
                     <td class="list-box list-body"><%= link_to "Show", user_path(user.id) %></td>
                   </tr>

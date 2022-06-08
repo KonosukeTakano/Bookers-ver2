@@ -14,9 +14,9 @@
   <div class="row">
     <div class='col-md-3'>
       <h2>User info</h2>
-      <%= render partial: 'users/info', locals: { user: @user } %>
+      <div id="user_info"><%= render 'users/info', user: @user %></div>
       <div>
-        <%= render partial: 'users/relationship', locals: { user: @user } %> 
+        <%= render 'users/relationship', user: @user, id: "follow_btn_ #{ @user.id }" %>
       </div>
       <h2 class="mt-3">New book</h2>
       <%= render partial: 'form', locals: { book: @new_book } %>  
@@ -49,6 +49,7 @@
                   </div>
                 <% end %>
                 <%= render "favorites/favorite", book: @book %>
+                <div id="number_comment"><%= render "book_comments/ncomment", book: @book %></div>
               </td>
             </tr>
         </tbody>
