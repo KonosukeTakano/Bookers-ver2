@@ -41,16 +41,21 @@
               <td class="list-box list-body">
                 <%= @book.body %>
               </td>
-              <td id="favorite_buttons_<%= @book.id %>">
+              <td>
                 <% if current_user == @user %>
                   <div>
                     <%= link_to "Edit",edit_book_path(@book), class: "btn btn-sm btn-success" %>
                     <%= link_to "Destroy", destroy_book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
                   </div>
                 <% end %>
-                <%= render "favorites/favorite", book: @book %>
-                <div id="number_comment"><%= render "book_comments/ncomment", book: @book %></div>
               </td>
+              <td id="favorite_buttons_<%= @book.id %>">
+                <%= render "favorites/favorite", book: @book %>
+              </td>
+              <td>
+                <div id="number_comment"><%= render "book_comments/ncomment", book: @book %></div>  
+              </td>
+              
             </tr>
         </tbody>
       </table>
