@@ -31,8 +31,8 @@
                       <% end %>
                     </td>
                     <td><%= user.name %></td>
-                    <td>follows:<%= user.followings.count %></td>
-                    <td>followers:<%= user.followers.count %></td>
+                    <td id="follows"><%= render 'follows', user: user %></td>
+                    <td id="followers"><%= render 'followers', user: user %></td>
                     <td id="follow_button_<%= user.id %>">
                       <%= render 'relationship', user: user %>
                     </td>
