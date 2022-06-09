@@ -1,8 +1,9 @@
 <!--railsではform_withではlocal: trueがデフォルトになったためjs.erbを呼び出すにはlocal: falseが必要！-->
 <%= form_with model: [book, book_comment], local: false do |f| %>
   <!--エラーメッセージ-->
-  <%= f.text_area :comment, rows: '5', placeholder: "comments here", class: "form-control" %>
-  <div>
-    <%= f.submit "Send", class: "btn btn-secondary" %>
+  <div id="comments-error">
+    <%= render 'layouts/error_messages', model: f.object %>  
   </div>
+  <%= f.text_area :comment, rows: '5', placeholder: "comments here", class: "form-control" %>
+  <%= f.submit "Send", class: "btn btn-secondary" %>
 <% end %>

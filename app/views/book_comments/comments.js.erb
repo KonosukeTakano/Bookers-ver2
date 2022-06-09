@@ -1,7 +1,9 @@
 <!--id="comments_areaをrenderで指定した部分テンプレートに更新-->
 $("#comments_area").html("<%= j(render 'book_comments/book_comments', book: @book, book_comment: @book_comment) %>");
-
 $("#number_comment").html("<%= j(render 'book_comments/ncomment', book: @book) %>");
 
 <!--フォームを送信したあとにフォームの値を空にします-->
 $("textarea").val('');
+
+<!--フラッシュメッセージのテンプレートを更新-->
+$("#flash-message").html("<%= j(render 'layouts/flash') %>");

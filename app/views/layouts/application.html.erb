@@ -86,6 +86,9 @@
     </header>
     <p id="notice"></p>
     <%= render partial: 'searches/search' %>
+    <div id="flash-message">
+      <%= render 'layouts/flash' %>
+    </div>
     <%= yield %>
     <footer>
       <div class="container mt-5">
