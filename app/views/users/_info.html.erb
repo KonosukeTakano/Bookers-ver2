@@ -20,7 +20,7 @@
   	  <th></th>
     </tr>
     <tr>
-  	  <th><%= link_to "#{ user.followers.count }followers", user_followers_path(user.id), id: "follower-count_#{ user.id }" %></th>
+  	  <th id="follower-count_<%= user.id %>"><%= link_to "#{ user.followers.count }followers", user_followers_path(user.id) %></th>
   	  <th></th>
     </tr>
   </tbody>
