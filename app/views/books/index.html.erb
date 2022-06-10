@@ -34,10 +34,11 @@
         <table class="BookTable table table-hover table-inverse tbl-r02">
           <thead>
             <tr>
-              <th class="list-wrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              <th class="list-wrap"></th>
               <th class="list-wrap">Title</th>
               <th class="list-wrap">Opinion</th>
-              <th class="list-wrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              <th class="list-wrap"></th>
+              <th class="list-wrap"></th>
             </tr>
           </thead>
           <tbody>
@@ -52,6 +53,22 @@
                   </td>
                   <td class="list-box"><%= link_to book.title , book_path(book.id) %></td>
                   <td class="list-box list-body"><%= book.body %></td>
+                  <td class="relative-book-evaluation">
+                    <span>評価：</span>
+                    <span id="star-rate-<%= book.id %>"></span>
+                    <script>
+                      $('#star-rate-<%= book.id %>').raty({
+                        size: 36,
+                        starOff: "<%= asset_path('star-off.png') %>",
+                        starOn: "<%= asset_path('star-on.png') %>",
+                        starHalf: "<%= asset_path('star-half.png') %>",
+                        half: true, // 星半分表示
+                        readOnly: true, // 読み取り専用
+                        score: <%= book.evaluation %>, // 星評価の表示
+                      });
+                    </script>
+                    <%= book.evaluation %>
+                  </td>
                   <td id="favorite_buttons_<%= book.id %>">
                     <%= render "favorites/favorite", book: book %>
                   </td>

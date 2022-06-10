@@ -12,9 +12,12 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application" 
+import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+window.$ = window.jQuery = require('jquery'); //追記
+require('packs/raty') //追記

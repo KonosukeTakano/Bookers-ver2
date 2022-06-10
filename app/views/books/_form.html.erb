@@ -9,6 +9,20 @@
       <%= f.text_area :body, class: "form-control" %>
     </div>
   </div>
+  <div class="field" id="star">
+    <%= f.label :evaluation, "星評価：" %>
+    <%= f.hidden_field :evaluation, id: :review_star %>
+    <script>
+      $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'book[evaluation]', // evaluationカラムへの保存
+        half: true, // 星半分の入力
+      });
+    </script>
+  </div>
   <div>
     <%= f.submit class: "submit btn btn-success" %>
   </div>

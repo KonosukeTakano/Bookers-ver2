@@ -6,10 +6,6 @@
 
 <div class="container px-5 px-sm-0">
 
-<% if flash[:notice] %>
-    <p id="notice"><%= flash[:notice] %></p>
-<% end %>
-
 <div class="container">
   <div class="row">
     <div class='col-md-3'>
@@ -40,6 +36,22 @@
               </td>
               <td class="list-box list-body">
                 <%= @book.body %>
+              </td>
+              <td class="relative-book-evaluation">
+                <span>評価：</span>
+                <span id="star-rate-<%= @book.id %>"></span>
+                <script>
+                  $('#star-rate-<%= @book.id %>').raty({
+                    size: 36,
+                    starOff: "<%= asset_path('star-off.png') %>",
+                    starOn: "<%= asset_path('star-on.png') %>",
+                    starHalf: "<%= asset_path('star-half.png') %>",
+                    half: true, // 星半分表示
+                    readOnly: true, // 読み取り専用
+                    score: <%= @book.evaluation %>, // 星評価の表示
+                  });
+                </script>
+                <%= @book.evaluation %>
               </td>
               <td>
                 <% if current_user == @user %>
