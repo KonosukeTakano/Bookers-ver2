@@ -1,4 +1,16 @@
 <%= form_with model: book, local: true do |f| %>
+  <!--タグ追記ここから-->
+  <div class="check_box">
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <div class='form-check'>
+     　 <%= tag.label do %>
+      　  <%= tag.check_box %>
+      　  <%= tag.text %>
+      　<% end %>
+      </div>
+    <% end %>
+  </div>
+  <!--タグ追記ここまで-->
   <div class="form-group">
     <h4>Title</h4>
       <%= f.text_field :title, class: "form-control" %>

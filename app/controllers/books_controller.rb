@@ -5,7 +5,9 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    @tags = Tag.all
+    @books = params[:name].present? ? Tag.find(params[:name]).books : Book.all
+    # @books = Book.all
     @book = Book.new
     @user = current_user
     @users = User.all
@@ -69,7 +71,7 @@ class BooksController < ApplicationController
   private
   #ストロングパラメータ
   def book_params
-    params.require(:book).permit(:title, :body, :evaluation)
+    params.require(:book).permit(:title, :body, :evaluation, tag_ids: [])
   end
 
 end

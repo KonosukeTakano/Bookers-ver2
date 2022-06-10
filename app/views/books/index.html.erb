@@ -25,16 +25,25 @@
         <%= render partial: 'form', locals: { book: @book } %>
       </div>
 
-      <% if flash[:notice] %>
-        <p id="notice"><%= flash[:notice] %></p>
-      <% end %>
-
+      <!--ここから追記-->
+      <%= form_tag books_path, method: :get, class: 'boards__searchForm' do %>
+        <% @tags.each do |tag| %>
+            <div class="tag-box">
+              <%= link_to tag.name, books_path(name: tag.id) %>
+            </div>
+        <% end %>
+            <div class="tag-box">
+              <%= link_to "全ての本", books_path %>
+            </div>
+      <!--ここまで-->
+      
       <div class="col-md-8 offset-md-1">
         <h1>Books</h1>
         <table class="BookTable table table-hover table-inverse tbl-r02">
           <thead>
             <tr>
               <th class="list-wrap"></th>
+              <th class="list-wrap">Category</th>
               <th class="list-wrap">Title</th>
               <th class="list-wrap">Opinion</th>
               <th class="list-wrap"></th>
@@ -49,6 +58,11 @@
                       <%= link_to image_tag(book.user.get_profile_image(100,100)), user_path(book.user.id) %>
                     <% else %>
                       <%= link_to image_tag('no_image', size: "100x100"), user_path(book.user.id) %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <% book.tags.each do |tag| %>
+                      <%= tag.name %>
                     <% end %>
                   </td>
                   <td class="list-box"><%= link_to book.title , book_path(book.id) %></td>
@@ -77,6 +91,7 @@
           </tbody>
         </table>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
